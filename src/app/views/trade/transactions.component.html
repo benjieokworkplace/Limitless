@@ -1,0 +1,34 @@
+
+<div class="col-md-6">
+<div class="">
+<select class="form-select mb-3" aria-label="">
+  <option selected>Select the stock</option>
+  <option *ngFor="let product of products">{{product}}</option>
+</select>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">GH¢</span>
+  <span class="input-group-text">0.00</span>
+  <input type="number" class="form-control" aria-label="amount">
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">Quantity</span>
+  <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label"></label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+</div>
+
+
+<div class="btn-toolbar col-md-12 justify-content-center" role="toolbar" aria-label=" button groups toggle button group">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+      <button type="button" class="btn btn-check btn-primary" autocomplete="off">Buy Stock</button>
+      <button type="button" class="btn btn-success">Sell Stock</button>
+</div>
