@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector:'transactions',
-  templateUrl: 'transactions.component.html'
+  templateUrl: 'make-trade.component.html'
 })
-export class TransactionsComponent {
+export class MakeTradeComponent {
 //    products :any  = [
 //     {id: 1, name:'Superman'},
 //     {id: 2, name:'Batman'},

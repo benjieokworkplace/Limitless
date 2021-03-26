@@ -15,14 +15,14 @@ export const navItems: INavData[] = [
     url: '/trade/market',
     icon: 'icon-drop'
   },
+  // {
+  //   name: 'Portfolio',
+  //   url: '/trade/portfolio',
+  //   icon: 'icon-pencil'
+  // },
   {
-    name: 'Portfolio',
-    url: '/trade/portfolio',
-    icon: 'icon-pencil'
-  },
-  {
-    name: 'Transactions',
-    url: '/trade/transactions',
+    name: 'Trade',
+    url: '/trade/trade',
     icon: 'icon-pencil'
   },
   {

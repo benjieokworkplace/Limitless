@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TradingOptionsComponent } from './tradingOptions.component';
 import {PortfolioComponent } from './portfolio.component';
 import { HistoryComponent } from './history.component';
-import { TransactionsComponent } from './transactions.component';
+import { MakeTradeComponent } from './make-trade.component';
 
 const routes: Routes = [
   {
@@ -24,18 +24,18 @@ const routes: Routes = [
           title: 'Market Data'
         }
       },
+      // {
+      //   path: 'portfolio',
+      //   component: PortfolioComponent,
+      //   data: {
+      //     title: 'Portfolio'
+      //   }
+      // },
       {
-        path: 'portfolio',
-        component: PortfolioComponent,
+        path: 'trade',
+        component: MakeTradeComponent,
         data: {
-          title: 'Portfolio'
-        }
-      },
-      {
-        path: 'transactions',
-        component: TransactionsComponent,
-        data: {
-          title: 'transactions'
+          title: 'Trade'
         }
       },
       {
