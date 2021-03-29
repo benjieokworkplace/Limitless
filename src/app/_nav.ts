@@ -25,17 +25,8 @@ export const navItems: INavData[] = [
     url: '/trade/history',
     icon: 'cil-bar-chart'
   },
-  {
-    title: true,
-    name: 'Accounts'
-  },
-  {
-    name: 'Logout',
-    url: '/',
-    icon: 'cil-power-standby'
-  }
-  
-  
+
+
   // {
   //   name: 'Account Setting',
   //   url: '/account-setting',

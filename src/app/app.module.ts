@@ -43,6 +43,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {ToastrModule} from 'ngx-toastr';
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -60,7 +63,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
+    ToastrModule.forRoot(),
+    HttpClientModule,
     NgbModule,
+    FormsModule,
   ],
   declarations: [
     AppComponent,
