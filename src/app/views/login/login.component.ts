@@ -21,5 +21,5 @@ export class LoginComponent {
     this.router.navigateByUrl("/register")
   }
 
-  
+
 }
