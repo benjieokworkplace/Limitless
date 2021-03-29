@@ -13,7 +13,13 @@ export class LoginComponent {
     this.router.navigateByUrl("/dashboard")
   }
 
+  navigateToLogin() {
+    this.router.navigateByUrl("/login")
+  }
+
   navigateToRegister() {
     this.router.navigateByUrl("/register")
   }
+
+  
 }

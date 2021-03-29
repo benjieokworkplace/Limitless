@@ -13,22 +13,17 @@ export const navItems: INavData[] = [
   {
     name: 'Market Data',
     url: '/trade/market',
-    icon: 'icon-drop'
+    icon: 'cil-bank'
   },
-  // {
-  //   name: 'Portfolio',
-  //   url: '/trade/portfolio',
-  //   icon: 'icon-pencil'
-  // },
   {
     name: 'Trade',
     url: '/trade/trade',
-    icon: 'icon-pencil'
+    icon: 'cil-balance-scale'
   },
   {
     name: 'History',
     url: '/trade/history',
-    icon: 'icon-pencil'
+    icon: 'cil-bar-chart'
   },
   {
     title: true,
@@ -37,7 +32,7 @@ export const navItems: INavData[] = [
   {
     name: 'Logout',
     url: '/',
-    icon: 'icon-pie-chart'
+    icon: 'cil-power-standby'
   }
   
   

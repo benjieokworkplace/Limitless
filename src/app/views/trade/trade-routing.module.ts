@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { TradingOptionsComponent } from './tradingOptions.component';
-import {PortfolioComponent } from './portfolio.component';
 import { HistoryComponent } from './history.component';
 import { MakeTradeComponent } from './make-trade.component';
 
@@ -24,13 +23,6 @@ const routes: Routes = [
           title: 'Market Data'
         }
       },
-      // {
-      //   path: 'portfolio',
-      //   component: PortfolioComponent,
-      //   data: {
-      //     title: 'Portfolio'
-      //   }
-      // },
       {
         path: 'trade',
         component: MakeTradeComponent,

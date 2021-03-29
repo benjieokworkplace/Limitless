@@ -1,19 +1,19 @@
 <app-header
   [navbarBrandRouterLink]="['/dashboard']"
   [fixed]="true"
-  [navbarBrandFull]="{src: 'assets/img/brand/logo.png', width: 35, height: 35, alt: 'Limitless'}" 
+  [navbarBrandFull]="{src: 'assets/img/brand/logo.png', width: 35, height: 35, alt: 'Limitless Logo'}" 
   [navbarBrandText]="{title:'Limitless Trade'}"
-  [navbarBrandMinimized]="{src: 'assets/img/brand/logo.png', width: 30, height: 30, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/logo.png', width: 30, height: 30, alt: 'Limitless Logo'}"
   [sidebarToggler]="'lg'"
   [asideMenuToggler]="'lg'">
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item dropdown" dropdown placement="bottom right">
       <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
         <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
-<!--        <i class="fa fa-user-circle-o fa-3x"></i>-->
+       <!-- <i class="fa fa-user-circle-o fa-3x"></i> -->
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
-        <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+        <a class="dropdown-item" href="#"><i class="cil-power-standby"></i> Logout</a>
       </div>
     </li>
   </ul>
@@ -23,6 +23,8 @@
     <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
     <app-sidebar-minimizer></app-sidebar-minimizer>
   </app-sidebar>
+
+
   <!-- Main content -->
   <main class="main">
     <cui-breadcrumb>
