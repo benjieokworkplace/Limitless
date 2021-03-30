@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {AuthenticationService} from './authentication.service';
 import {Observable, throwError} from 'rxjs';
@@ -11,30 +11,37 @@ import {Router} from '@angular/router';
 })
 export class InterceptorService implements HttpInterceptor {
 
-  constructor(private authService: AuthenticationService) {}
+  constructor(private authService: AuthenticationService) {
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     //get the token
     let token = Config.getToken();
+    console.log('token', token);
 
+    let request;
     //clone the request and add authentication header
-    let request = req.clone({
-      setHeaders:{
-        'Authorization':`Bearer ${token}`
-      }
-    });
+    if (token === null || token === undefined) {
+      request = req;
+    } else {
+      request = req.clone({
+        setHeaders: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+    }
 
 
     return next.handle(request).pipe(
       retry(1),
-      catchError((err: HttpErrorResponse)=>{
-          //handle token expiration or unauthenticated messages here
-        if (err.status === 401 || err.status === 403){
+      catchError((err: HttpErrorResponse) => {
+        //handle token expiration or unauthenticated messages here
+        if (err.status === 401 || err.status === 403) {
           //send user to the login page - forced logout
           this.authService.logout();
         }
-        return throwError(err)
+        return throwError(err);
       })
     );
-    }
+  }
 }

@@ -7,29 +7,30 @@ class Config {
   }
 
   static saveUserDetails(data: any) {
-    sessionStorage.setItem("id", data["id"])
-    sessionStorage.setItem("name", data["fullName"])
-    sessionStorage.setItem("email", data["email"])
-    sessionStorage.setItem("token", data["accessToken"])
+    sessionStorage.setItem('id', data['id']);
+    sessionStorage.setItem('name', data['fullName']);
+    sessionStorage.setItem('email', data['email']);
+    sessionStorage.setItem('token', data['accessToken']);
   }
 
-  static getName () {
-    return sessionStorage.getItem("name")
-  }
-  static getEmail () {
-    return sessionStorage.getItem("email")
+  static getName() {
+    return sessionStorage.getItem('name');
   }
 
-  static getId () {
-    return sessionStorage.getItem("id")
+  static getEmail() {
+    return sessionStorage.getItem('email');
   }
 
-  static getToken () {
-    return sessionStorage.getItem("token")
+  static getId() {
+    return sessionStorage.getItem('id');
   }
 
-  static userIsAuthenticated() : boolean {
-    return sessionStorage.getItem("id") !== null;
+  static getToken() {
+    return sessionStorage.getItem('token');
+  }
+
+  static userIsAuthenticated(): boolean {
+    return sessionStorage.getItem('id') !== null;
   }
 
   static clear() {
@@ -38,4 +39,4 @@ class Config {
 
 }
 
-export { Config }
+export {Config};

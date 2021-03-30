@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Config} from '../models/Config';
@@ -8,9 +8,10 @@ import {Config} from '../models/Config';
 })
 export class ProductServiceService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  product() : Observable<any>{
-    return this.httpClient.get(Config.apiUrl()+"/trade/order")
+  product(): Observable<any> {
+    return this.httpClient.get(Config.apiUrl() + '/trade/order');
   }
 }
