@@ -24,16 +24,20 @@
         <h5 class="modal-title" id="exampleModalLabel">Add a portfolio</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form #formRef="ngForm" (ngSubmit)="addPortfolio()">
       <div class="modal-body">
         <label for="add_portfolio">
           Name of Portfolio
         </label>
-        <input class="form-control " type="text" name="" id="">
+        <input class="form-control " type="text" #nameRef="ngModel" name="add_portfolio" id="add_portfolio" [(ngModel)]="portfolioName" required>
       </div>
+        <span class="text-danger" *ngIf="nameRef.touched && nameRef.invalid">name is not valid</span>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add</button>
+        <button type="button" class="btn btn-secondary" id="closeButton" data-bs-dismiss="modal">Close</button>
+        <button type="submit" [disabled]="formRef.invalid" class="btn btn-primary">Add</button>
       </div>
+      </form>
+    </div>
     </div>
   </div>
 </div>
@@ -43,32 +47,25 @@
 
     <div class="card pt-2 pb-4">
       <div class="card-body">
-
         <div class="row justify-content-evenly">
           <div class="col-md-4">
             <select class="form-select mb-5" aria-label="">
-              <option selected>Select Portfolio</option>
-              <option *ngFor="let portfolios of portfolio">{{portfolio}}</option>
+              <option selected disabled>Select Portfolio</option>
+              <option *ngFor="let portfolio of portfolios" [value]="portfolio['portfolio']">{{portfolio["portfolioName"]}}</option>
             </select>
           </div>
-
-
           <div class="col-md-4">
             <select class="form-select mb-5" aria-label="">
               <option selected>Select the stock</option>
-              <option *ngFor="let product of products">{{product}}</option>
+              <option >g</option>
             </select>
           </div>
-
         </div>
-
         <div class="row justify-content-evenly">
           <div class="input-group mb-5 col-md-4">
             <span class="input-group-text">USD ($)</span><span class="input-group-text">0.00</span>
             <input type="number" class="form-control" aria-label="amount">
           </div>
-
-
           <div class="col-md-4">
             <div class="input-group mb-5">
               <span class="input-group-text" id="inputGroup-sizing-default">Quantity</span>
@@ -77,17 +74,19 @@
             </div>
 
           </div>
-
+        </div>
           <div class="btn-toolbar col-md-12 justify-content-center" role="toolbar"
             aria-label=" button groups toggle button group">
-
             <div class="btn-group mr-2" role="group" aria-label="First group">
               <button type="button" class="btn mr-3 btn-success">Buy Stock</button>
               <button type="button" class="btn ml-3 btn-danger">Sell Stock</button>
             </div>
-
           </div>
-
         </div>
-
+    </div>
+</div>
+        </div>
       </div>
+    </div>
+  </div>
+</div>

@@ -7,12 +7,14 @@ import { NgModule } from '@angular/core';
 import { TradingOptionsComponent } from './tradingOptions.component';
 import { TradingRoutingModule } from './trade-routing.module';
 import {MakeTradeComponent} from './make-trade.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TradingRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        TradingRoutingModule,
+        FormsModule
+    ],
   declarations: [
     TradingOptionsComponent,
     MakeTradeComponent

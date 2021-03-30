@@ -1,30 +1,50 @@
 import {Component, OnInit} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
-import {ProductServiceService} from '../../services/product-service.service';
 import {TradeService} from '../../services/trade.service';
+import {PortfolioService} from '../../services/portfolio.service';
+import {Config} from '../../models/Config';
 
 @Component({
-  selector:'make-trade',
+  selector: 'make-trade',
   templateUrl: 'make-trade.component.html'
 })
 export class MakeTradeComponent implements OnInit {
 
-  trades:[]=[];
+  trades: [] = [];
+  portfolios: [] = [];
+  portfolioName: string="";
 
-
-  constructor(private toastr: ToastrService, private tradeService: TradeService ) {
+  constructor(private toastr: ToastrService, private tradeService: TradeService, private portfolioService: PortfolioService) {
   }
 
   ngOnInit(): void {
-    this.sendToTrade()
+    this.getPortfolios();
   }
 
-  sendToTrade(){
-    this.tradeService.trades().subscribe(response=> {
+  getPortfolios(){
+    this.portfolioService.getPortfolios().subscribe(response=>{
       console.log(response);
-      this.trades = response
-    }, error => {
+      this.portfolios = response;
+    },error => {
       console.log(error)
+    });
+  }
+
+  addPortfolio(name: string){
+    console.log(this.portfolioName);
+    return this.portfolioService.addPortfolio(this.portfolioName,).subscribe(response =>{
+      console.log(response)
+    }, error=>{
+      console.log(error)
+    });
+  }
+
+  sendToTrade() {
+    this.tradeService.trades().subscribe(response => {
+      console.log(response);
+      this.trades = response;
+    }, error => {
+      console.log(error);
     });
   }
 
