@@ -1,25 +1,31 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
+import {ProductServiceService} from '../../services/product-service.service';
+import {TradeService} from '../../services/trade.service';
 
 @Component({
-  selector:'transactions',
+  selector:'make-trade',
   templateUrl: 'make-trade.component.html'
 })
-export class MakeTradeComponent {
-//    products :any  = [
-//     {id: 1, name:'Superman'},
-//     {id: 2, name:'Batman'},
-//     {id: 5, name:'BatGirl'},
-//     {id: 3, name:'Robin'},
-//     {id: 4, name:'Flash'}
-// ];
-  products:string[] = [
-    "GOOGL",
-    "AMAZON",
-    "APPLE",
-    "SAMSUNG",
-    "DELL"
-  ] 
-  
+export class MakeTradeComponent implements OnInit {
 
+  trades:[]=[];
+
+
+  constructor(private toastr: ToastrService, private tradeService: TradeService ) {
+  }
+
+  ngOnInit(): void {
+    this.sendToTrade()
+  }
+
+  sendToTrade(){
+    this.tradeService.trades().subscribe(response=> {
+      console.log(response);
+      this.trades = response
+    }, error => {
+      console.log(error)
+    });
+  }
 
 }

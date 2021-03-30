@@ -1,6 +1,8 @@
 class Config {
 
   static apiUrl(): string {
+    // return "http://18.222.109.113"
+    // return 'http://8ff047aa74ea.ngrok.io';
     return "http://ec2-18-222-109-113.us-east-2.compute.amazonaws.com"
   }
 

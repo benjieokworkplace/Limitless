@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 // Trade Routing
 import { TradingOptionsComponent } from './tradingOptions.component';
 import { TradingRoutingModule } from './trade-routing.module';
+import {MakeTradeComponent} from './make-trade.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { TradingRoutingModule } from './trade-routing.module';
   ],
   declarations: [
     TradingOptionsComponent,
+    MakeTradeComponent
   ]
 })
 export class TradeModule { }
