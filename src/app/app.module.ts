@@ -45,7 +45,8 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {InterceptorService} from './services/interceptor.service';
 
 @NgModule({
   imports: [
@@ -56,8 +57,10 @@ import {HttpClientModule} from '@angular/common/http';
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
     AppHeaderModule,
+    AppRoutingModule,
     AppSidebarModule,
     PerfectScrollbarModule,
+    BrowserModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
@@ -77,6 +80,11 @@ import {HttpClientModule} from '@angular/common/http';
     RegisterComponent
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    },
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
