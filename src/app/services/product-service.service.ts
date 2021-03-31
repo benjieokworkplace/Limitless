@@ -11,7 +11,7 @@ export class ProductServiceService {
   constructor(private httpClient: HttpClient) {
   }
 
-  product(): Observable<any> {
-    return this.httpClient.get(Config.apiUrl() + '/trade/order');
+  marketData(): Observable<any> {
+    return this.httpClient.get(Config.apiUrl() + '/trade/md');
   }
 }

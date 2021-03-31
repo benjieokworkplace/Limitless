@@ -1,22 +1,28 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HistoryService} from '../../services/history.service';
 
 @Component({
   templateUrl: 'history.component.html'
 })
-export class HistoryComponent {
+export class HistoryComponent implements OnInit {
 
   histories: any[] = [];
 
-  constructor(private historyService : HistoryService) { }
+  constructor(private historyService: HistoryService) {
+  }
 
-  getHistory(){
-    this.historyService.history().subscribe(response=>{
-      console.log(response)
-      this.histories= response
-    },error => {
-      console.log(error)
+  ngOnInit(): void {
+    this.getHistory();
+  }
+
+  getHistory() {
+    this.historyService.history().subscribe(response => {
+      console.log(response);
+      this.histories = response;
+    }, error => {
+      console.log(error);
     });
   }
+
 
 }

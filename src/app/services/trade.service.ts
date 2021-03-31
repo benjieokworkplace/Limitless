@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Config} from '../models/Config';
 import {HttpClient} from '@angular/common/http';
@@ -8,9 +8,10 @@ import {HttpClient} from '@angular/common/http';
 })
 export class TradeService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  trades() : Observable<any>{
-    return this.httpClient.get(Config.apiUrl()+"/trade/order")
+  makeTrade(data: object): Observable<any> {
+    return this.httpClient.post(Config.apiUrl() + '/trade/order', data);
   }
 }

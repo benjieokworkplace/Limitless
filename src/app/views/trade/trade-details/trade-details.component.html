@@ -1,7 +1,7 @@
 <div class="animated fadeIn">
   <div class="card">
     <div class="card-header">
-      <i class="fa fa-bar-chart"></i> Trade History
+      <i class="fa fa-bar-chart"></i> Trade Executions
     </div>
     <div class="card-body">
       <div class="row">
@@ -15,42 +15,42 @@
               <th class="text-center">Price</th>
               <th class="text-center">Side</th>
               <th class="text-center">Portfolio</th>
-              <th class="">Status</th>
-              <th class="text-center">Actions</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Exchange</th>
+              <th class="text-center">Timestamp</th>
             </tr>
             </thead>
 
             <tbody>
 
             <!-- first row -->
-            <tr *ngFor="let history of histories">
+            <tr *ngFor="let execution of executions">
               <td>
-                <div class="text-center">{{history["product"]}}</div>
+                <div class="text-center">{{execution["product"]}}</div>
               </td>
               <td class="text-center">
-                <div class="text-center">{{history["quantity"]}}</div>
+                <div class="text-center">{{execution["quantity"]}}</div>
               </td>
               <td>
-                <div class="text-center"><span>USD</span>{{history["price"]}}</div>
+                <div class="text-center"><span>USD</span>{{execution["price"]}}</div>
               </td>
               <td>
-                <div class="text-center">{{history["side"]}}</div>
+                <div class="text-center">{{execution["side"]}}</div>
               </td>
               <td>
-                <div class=" text-center">{{history["portfolioName"]}}</div>
+                <div class=" text-center">{{execution["portfolioName"]}}</div>
               </td>
               <td>
-                <div *ngIf="history['status']?.toLowerCase() === 'pending'"
-                     class="badge badge-danger text-capitalize">{{history["status"]}}</div>
-                <div *ngIf="history['status']?.toLowerCase() === 'success'"
-                     class="badge badge-success text-capitalize">{{history["status"]}}</div>
+                <div *ngIf="execution['status']?.toLowerCase() === 'pending'"
+                     class="badge badge-danger text-capitalize">{{execution["status"]}}</div>
+                <div *ngIf="execution['status']?.toLowerCase() === 'success'"
+                     class="badge badge-success text-capitalize">{{execution["status"]}}</div>
               </td>
               <td>
-                <div class=" d-flex justify-content-between">
-                  <button [routerLink]="['/trade/history', history['orderId'], 'details']" class="btn btn-sm btn-primary">
-                    View Details
-                  </button>
-                </div>
+                <div class=" text-center">{{execution["exchange"]}}</div>
+              </td>
+              <td>
+                <div class=" text-center">{{execution["timestamp"]}}</div>
               </td>
             </tr>
             </tbody>

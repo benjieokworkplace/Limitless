@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Config} from '../models/Config';
@@ -8,9 +8,14 @@ import {Config} from '../models/Config';
 })
 export class HistoryService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  history() :Observable<any>{
-    return this.httpClient.get(Config.apiUrl()+"/trade/all/0")
+  history(): Observable<any> {
+    return this.httpClient.get(Config.apiUrl() + '/trade/all/' + Config.getId());
+  }
+
+  executions(orderId: string): Observable<any>{
+    return this.httpClient.get(Config.apiUrl() + "/trade/execution/all/" + orderId)
   }
 }

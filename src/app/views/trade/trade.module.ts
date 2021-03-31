@@ -8,6 +8,7 @@ import { TradingOptionsComponent } from './tradingOptions.component';
 import { TradingRoutingModule } from './trade-routing.module';
 import {MakeTradeComponent} from './make-trade.component';
 import {FormsModule} from '@angular/forms';
+import { TradeDetailsComponent } from './trade-details/trade-details.component';
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import {FormsModule} from '@angular/forms';
     ],
   declarations: [
     TradingOptionsComponent,
-    MakeTradeComponent
+    MakeTradeComponent,
+    TradeDetailsComponent
   ]
 })
 export class TradeModule { }

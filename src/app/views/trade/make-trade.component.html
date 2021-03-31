@@ -1,90 +1,102 @@
 <div class="animated fadeIn">
   <div class="card">
     <div class="card-header">
-      <i class="fa fa-balance-scale"></i> Market Data
+      <i class="fa fa-balance-scale"></i> Make Trade
     </div>
     <div class="card-body">
       <div class="row">
         <div class="col-md-12">
 
 
-<div class="container">
+          <div class="container">
 
-  <div class="row justify-content-end mb-4 mt-4">
-   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mb-4 col-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  + new portfolios
-</button>
+            <div class="row justify-content-end mb-4 mt-4">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary mb-4 col-md-2" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal">
+                + new portfolios
+              </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add a portfolio</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form #formRef="ngForm" (ngSubmit)="addPortfolio()">
-      <div class="modal-body">
-        <label for="add_portfolio">
-          Name of Portfolio
-        </label>
-        <input class="form-control " type="text" #nameRef="ngModel" name="add_portfolio" id="add_portfolio" [(ngModel)]="portfolioName" required>
-      </div>
-        <span class="text-danger" *ngIf="nameRef.touched && nameRef.invalid">name is not valid</span>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="closeButton" data-bs-dismiss="modal">Close</button>
-        <button type="submit" [disabled]="formRef.invalid" class="btn btn-primary">Add</button>
-      </div>
-      </form>
-    </div>
-    </div>
-  </div>
-</div>
-
-    <!--End of Modal -->
-
-
-    <div class="card pt-2 pb-4">
-      <div class="card-body">
-        <div class="row justify-content-evenly">
-          <div class="col-md-4">
-            <select class="form-select mb-5" aria-label="">
-              <option selected disabled>Select Portfolio</option>
-              <option *ngFor="let portfolio of portfolios" [value]="portfolio['portfolio']">{{portfolio["portfolioName"]}}</option>
-            </select>
-          </div>
-          <div class="col-md-4">
-            <select class="form-select mb-5" aria-label="">
-              <option selected>Select the stock</option>
-              <option >g</option>
-            </select>
-          </div>
-        </div>
-        <div class="row justify-content-evenly">
-          <div class="input-group mb-5 col-md-4">
-            <span class="input-group-text">USD ($)</span><span class="input-group-text">0.00</span>
-            <input type="number" class="form-control" aria-label="amount">
-          </div>
-          <div class="col-md-4">
-            <div class="input-group mb-5">
-              <span class="input-group-text" id="inputGroup-sizing-default">Quantity</span>
-              <input type="number" class="form-control" aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default">
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                   aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Add a portfolio</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form #formRef="ngForm" (ngSubmit)="addPortfolio()">
+                      <div class="modal-body">
+                        <label for="add_portfolio">
+                          Name of Portfolio
+                        </label>
+                        <input class="form-control" type="text" #nameRef="ngModel" name="add_portfolio"
+                               id="add_portfolio" [(ngModel)]="portfolioName" required>
+                      </div>
+                      <span class="text-danger" *ngIf="nameRef.touched && nameRef.invalid">name is not valid</span>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="closeButton" data-bs-dismiss="modal">Close
+                        </button>
+                        <button type="submit" [disabled]="formRef.invalid" class="btn btn-primary">Add</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
 
-          </div>
-        </div>
-          <div class="btn-toolbar col-md-12 justify-content-center" role="toolbar"
-            aria-label=" button groups toggle button group">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-              <button type="button" class="btn mr-3 btn-success">Buy Stock</button>
-              <button type="button" class="btn ml-3 btn-danger">Sell Stock</button>
+            <!--End of Modal -->
+
+
+            <div class="card pt-2 pb-4">
+              <div class="card-body">
+                <form #tradeFormRef="ngForm">
+                  <div class="row justify-content-evenly">
+                    <div class="col-md-4">
+                      <select name="portfolio" [(ngModel)]="portfolioId" required="required" class="form-select mb-5" aria-label="">
+                        <option selected disabled>Select Portfolio</option>
+                        <option  *ngFor="let portfolio of portfolios"
+                                [value]="portfolio['portfolioId']">{{portfolio["portfolioName"]}}</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <select name="stock" [(ngModel)]="product" required="required" class="form-select mb-5" aria-label="">
+                        <option disabled value="" selected>Select the stock</option>
+                        <option *ngFor="let p of products" [value]="p" >{{ p }}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row justify-content-evenly">
+                    <div class="input-group mb-5 col-md-4">
+                      <span class="input-group-text">USD ($)</span><span class="input-group-text">0.00</span>
+                      <input type="number" name="amount" required="required" min="1" [(ngModel)]="price"
+                             class="form-control" aria-label="amount">
+                    </div>
+                    <div class="col-md-4">
+                      <div class="input-group mb-5">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Quantity</span>
+                        <input type="number" name="quantity" required="required" min="1" [(ngModel)]="quantity"
+                               class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn-toolbar col-md-12 justify-content-center" role="toolbar"
+                       aria-label=" button groups toggle button group">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                      <button [disabled]="tradeFormRef.invalid" (click)="makeTrade('BUY')" type="submit"
+                              class="btn mr-3 btn-success">Buy Stock
+                      </button>
+                      <button [disabled]="tradeFormRef.invalid" type="submit" (click)="makeTrade('SELL')"
+                              class="btn ml-3 btn-danger">Sell Stock
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-    </div>
-</div>
         </div>
       </div>
     </div>

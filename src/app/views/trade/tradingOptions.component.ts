@@ -7,19 +7,19 @@ import {ProductServiceService } from '../../services/product-service.service'
 })
 export class TradingOptionsComponent implements OnInit{
 
-products:[] = [];
+marketData:[] = [];
 
   constructor(private toastr: ToastrService, private productService: ProductServiceService) {
   }
 
   ngOnInit(): void {
-    this.getProducts()
+    this.getMarketData()
   }
 
-  getProducts(){
-    this.productService.product().subscribe(response=> {
+  getMarketData(){
+    this.productService.marketData().subscribe(response=> {
       console.log(response);
-      this.products = response
+      this.marketData = response
     }, error => {
       console.log(error)
     });

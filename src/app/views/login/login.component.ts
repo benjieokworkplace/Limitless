@@ -23,7 +23,7 @@ export class LoginComponent {
     this.authService.login(this.userEmail, this.userPassword).subscribe(response => {
       console.log('response', response);
       Config.saveUserDetails(response);
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/trade/market');
       this.toastr.success('Login successful', 'Success');
     }, error => {
       console.log('error', error);
