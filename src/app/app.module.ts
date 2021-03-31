@@ -47,6 +47,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InterceptorService} from './services/interceptor.service';
+import {HistoryComponent} from './views/trade/history.component';
 
 @NgModule({
   imports: [
@@ -77,6 +78,7 @@ import {InterceptorService} from './services/interceptor.service';
     P404Component,
     P500Component,
     LoginComponent,
+    HistoryComponent,
     RegisterComponent
   ],
   providers: [

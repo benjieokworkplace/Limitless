@@ -27,128 +27,49 @@
             <tbody>
 
               <!-- first row -->
-              <tr>
+              <tr *ngFor="let history of histories">
 
                 <td>
-                  <div>GOOGL</div>
+                  <div>{{histories["product"]}}</div>
                 </td>
 
                 <td class="text-center">
-                  <div>12</div>
+                  <div>{{histories["quantity"]}}</div>
                 </td>
 
                 <td>
-                  <div class="text-center"><span>USD</span> 20.00</div>
+                  <div class="text-center"><span>USD</span>{{histories["price"]}}</div>
                 </td>
 
                 <td>
-                  <div class="text-center">Buy</div>
+                  <div class="text-center">{{histories["side"]}}</div>
                 </td>
 
                 <td>
-                  <div class=" text-center">Tech Portfolio</div>
+                  <div class=" text-center">{{histories["portfolio"]}}</div>
                 </td>
 
                 <td>
-                  <div class="badge badge-danger">FAILED</div>
+                  <div class="badge badge-danger text-capitalize">{{histories["status"]}}</div>
                 </td>
 
                 <td>
                   <div class=" d-flex justify-content-between">
-                    <button class="btn btn-sm btn-primary">View Details</button>
+                    <button routerLink="/trades/1/details" class="btn btn-sm btn-primary">View Details</button>
                     <button class="btn btn-sm btn-danger">Cancel</button>
                   </div>
                 </td>
 
               </tr>
-
-              <!-- second row -->
-
-              <tr>
-
-                <td>
-                  <div>TESLA</div>
-                </td>
-
-                <td class="text-center">
-                  <div>10</div>
-                </td>
-
-                <td>
-                  <div class="text-center"><span>USD</span> 50.00</div>
-                </td>
-
-                <td>
-                  <div class="text-center">Sell</div>
-                </td>
-
-                <td>
-                  <div class=" text-center">Automobile Portfolio</div>
-                </td>
-
-                <td>
-                  <div class="text-center badge badge-success">SUCCESSFUL</div>
-                </td>
-
-                <td>
-                  <div class=" d-flex justify-content-between">
-                    <button class="btn btn-sm btn-primary">View Details</button>
-                    <button class="btn btn-sm btn-danger">Cancel</button>
-                  </div>
-                </td>
-
-              </tr>
-
-              <tr>
-
-                <td>
-                  <div>TESLA</div>
-                </td>
-
-                <td class="text-center">
-                  <div>10</div>
-                </td>
-
-                <td>
-                  <div class="text-center"><span>USD</span> 50.00</div>
-                </td>
-
-                <td>
-                  <div class="text-center">Sell</div>
-                </td>
-
-                <td>
-                  <div class=" text-center">Automobile Portfolio</div>
-                </td>
-
-                <td>
-                  <div class="text-light badge badge-warning ">CANCELLED</div>
-                </td>
-
-                <td>
-                  <div class=" d-flex justify-content-between">
-                    <button class="btn btn-sm btn-primary">View Details</button>
-                    <button class="btn btn-sm btn-danger">Cancel</button>
-                  </div>
-                </td>
-               
-
-              </tr>
-
-
-
 
             </tbody>
           </table>
-
-
-
 
         </div>
       </div>
     </div>
   </div>
-    
+
         <!-- pagination -->
       <div class="d-flex justify-content-end mt-3 mb-2">
       <ul class="pagination">
@@ -165,5 +86,5 @@
         </li>
       </ul>
     </div>
-   
-  
+
+
