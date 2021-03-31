@@ -12,9 +12,11 @@ export class DefaultLayoutComponent {
   public navItems = navItems;
 
   name: string = ''
+  amount: any;
 
   constructor(private router: Router) {
     this.name = Config.getName();
+    this.amount = Config.getAccountBalance();
   }
 
 

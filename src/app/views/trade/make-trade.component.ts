@@ -14,6 +14,7 @@ export class MakeTradeComponent implements OnInit {
   portfolios: [] = [];
   portfolioName: string="";
 
+
   constructor(private toastr: ToastrService, private tradeService: TradeService, private portfolioService: PortfolioService) {
   }
 
@@ -30,22 +31,23 @@ export class MakeTradeComponent implements OnInit {
     });
   }
 
-  addPortfolio(name: string){
+  addPortfolio(){
     console.log(this.portfolioName);
     return this.portfolioService.addPortfolio(this.portfolioName,).subscribe(response =>{
-      console.log(response)
+      console.log("response", response)
+      //add the updated portfolio to the current list
+      this.portfolios = response;
+      this.toastr.success("Portfolio added successfully")
+
+      this.closeModal()
     }, error=>{
       console.log(error)
     });
   }
 
-  sendToTrade() {
-    this.tradeService.trades().subscribe(response => {
-      console.log(response);
-      this.trades = response;
-    }, error => {
-      console.log(error);
-    });
+  closeModal() {
+    document.getElementById("closeButton").click();
+    this.portfolioName = ' ';
   }
 
 }

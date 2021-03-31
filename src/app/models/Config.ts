@@ -11,10 +11,15 @@ class Config {
     sessionStorage.setItem('name', data['fullName']);
     sessionStorage.setItem('email', data['email']);
     sessionStorage.setItem('token', data['accessToken']);
+    sessionStorage.setItem('amount', data['accountBalance']);
   }
 
   static getName() {
     return sessionStorage.getItem('name');
+  }
+
+  static getAccountBalance() {
+    return sessionStorage.getItem('amount') ?? '0.0';
   }
 
   static getEmail() {
