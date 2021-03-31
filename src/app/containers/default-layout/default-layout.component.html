@@ -7,10 +7,10 @@
   [sidebarToggler]="'lg'"
   [asideMenuToggler]="'lg'">
   <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item dropdown" style="cursor: pointer" ><b class="text-black-50">{{ name }} (USD {{ amount }})</b></li>
+    <li class="nav-item dropdown" style="cursor: pointer" ><b class="text-dark text-capitalize mr-3">{{ name }}</b><span class="badge badge-pill badge-warning text-white ml-2 pr-1 pl-1"> USD {{ amount }}</span></li>
     <li class="nav-item dropdown" dropdown placement="bottom right">
       <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
-        <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
+        <img src="assets/img/avatars/1.png" class="img-avatar" alt="User Image"/>
        <!-- <i class="fa fa-user-circle-o fa-3x"></i> -->
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">

@@ -6,8 +6,6 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-12">
-
-
           <div class="container">
 
             <div class="row justify-content-end mb-4 mt-4">
@@ -55,7 +53,7 @@
                   <div class="row justify-content-evenly">
                     <div class="col-md-4">
                       <select name="portfolio" [(ngModel)]="portfolioId" required="required" class="form-select mb-5" aria-label="">
-                        <option selected disabled>Select Portfolio</option>
+                        <option selected value="" disabled>Select Portfolio</option>
                         <option  *ngFor="let portfolio of portfolios"
                                 [value]="portfolio['portfolioId']">{{portfolio["portfolioName"]}}</option>
                       </select>
